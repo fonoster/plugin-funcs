@@ -6,7 +6,7 @@ export default function (plop: any) {
         {
           type: "add",
           path: "{{cwd}}/function/package.json",
-          templateFile: "templates/package.hbs",
+          templateFile: "templates/package.json",
           abortOnFail: true,
           transform(fileContents: string, data: { [key: string]: string }) {
             return fileContents.replace(/\,(?=\s*?[\}\]])/g, "");
@@ -14,8 +14,14 @@ export default function (plop: any) {
         },
         {
           type: "add",
-          path: "{{cwd}}/{{entryPoint}}.{{ext}}",
+          path: "{{cwd}}/function/handler.{{ext}}",
           templateFile: "templates/handler.hbs",
+          abortOnFail: true,
+        },
+        {
+          type: "add",
+          path: "{{cwd}}/function/Dockerfile",
+          templateFile: "templates/docker.hbs",
           abortOnFail: true,
         }
       );

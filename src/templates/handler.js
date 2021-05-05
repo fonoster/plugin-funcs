@@ -1,1 +1,0 @@
-console.log("I am the function handler from JS.")

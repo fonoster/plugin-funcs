@@ -32,27 +32,27 @@ export default class InitCommand extends Command {
 					{name: 'Eslint', value: ['eslint', 'lastest']}
 				]
       },
-      {
-        name: "pckgName",
-        message: "package name",
-        type: "input",
-        default: dirname
-      },
-      {
-        name: "pckgVersion",
-        message: "version",
-        type: "input",
-        default: "1.0.0"
-      },
-      {name: "pckgDesc", message: "description", type: "input"},
-      {
-        name: "entryPoint",
-        message: "entry point",
-        type: "input",
-        default: "function/handler"
-      },
-      {name: "author", message: "author", type: "input"},
-      {name: "license", message: "license", type: "input", default: "ISC"},
+      // {
+      //   name: "pckgName",
+      //   message: "package name",
+      //   type: "input",
+      //   default: dirname
+      // },
+      // {
+      //   name: "pckgVersion",
+      //   message: "version",
+      //   type: "input",
+      //   default: "1.0.0"
+      // },
+      // {name: "pckgDesc", message: "description", type: "input"},
+      // {
+      //   name: "entryPoint",
+      //   message: "entry point",
+      //   type: "input",
+      //   default: "function/handler"
+      // },
+      // {name: "author", message: "author", type: "input"},
+      // {name: "license", message: "license", type: "input", default: "ISC"},
       {
         name: "confirm",
         message: "everything looks good?",
