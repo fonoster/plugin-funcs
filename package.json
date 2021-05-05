@@ -1,0 +1,58 @@
+{
+  "name": "func",
+  "description": "no desc",
+  "version": "0.0.0",
+  "author": "wardner @Wardner",
+  "bugs": "https://github.com/Wardner/func/issues",
+  "dependencies": {
+    "@oclif/command": "^1.8.0",
+    "@oclif/config": "^1.17.0",
+    "node-plop": "^0.26.2",
+    "plop": "^2.7.4",
+    "plop-pack-npm-install-packages": "0.0.3",
+    "tslib": "^1.14.1"
+  },
+  "devDependencies": {
+    "@oclif/dev-cli": "^1.26.0",
+    "@oclif/plugin-help": "^3.2.2",
+    "@oclif/test": "^1.2.8",
+    "@types/chai": "^4.2.17",
+    "@types/inquirer": "^7.3.1",
+    "@types/mocha": "^5.2.7",
+    "@types/node": "^10.17.59",
+    "chai": "^4.3.4",
+    "globby": "^10.0.2",
+    "mocha": "^5.2.0",
+    "nyc": "^14.1.1",
+    "rimraf": "^3.0.2",
+    "ts-node": "^8.10.2",
+    "typescript": "^3.9.9"
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "files": [
+    "/lib",
+    "/npm-shrinkwrap.json",
+    "/oclif.manifest.json"
+  ],
+  "homepage": "https://github.com/Wardner/func",
+  "keywords": [
+    "oclif-plugin"
+  ],
+  "license": "MIT",
+  "oclif": {
+    "commands": "./lib/commands",
+    "bin": "oclif-example",
+    "devPlugins": [
+      "@oclif/plugin-help"
+    ]
+  },
+  "repository": "Wardner/func",
+  "scripts": {
+    "postpack": "rimraf oclif.manifest.json",
+    "prepack": "rimraf lib && tsc -b && oclif-dev manifest && oclif-dev readme",
+    "test": "nyc --extension .ts mocha --forbid-only \"test/**/*.test.ts\"",
+    "version": "oclif-dev readme && git add README.md"
+  }
+}

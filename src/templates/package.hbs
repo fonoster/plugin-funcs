@@ -1,0 +1,14 @@
+{
+  "name": "{{ lowerCase pckgName }}",
+  "description": "{{ pckgDesc }}",
+  "version": "{{ lowerCase pckgVersion }}",
+  "main": "{{ entryPoint }}",
+  "author": "{{ author }}",
+  "license": "{{ license }}",
+  "private": true,
+  "dependencies": {
+    {{#each dependencies}} 
+    "{{@key}}": "{{this}}", 
+    {{/each}} 
+  }
+}
