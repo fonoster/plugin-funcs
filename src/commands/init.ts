@@ -16,43 +16,28 @@ export default class InitCommand extends Command {
     console.log("to help you get start quickly. Press ^C at any time to quit.");
 
     const dirname: string = basename(process.cwd());
-    let  questions: any = await prompt([
+    const  questions: any = await prompt([
       {
-        name: "typescript",
-        message: "Want to use typescript?",
-        type: "confirm",
-        default: () => true
+        name: "pckgName",
+        message: "package name",
+        type: "input",
+        default: dirname
       },
       {
-        type: 'checkbox',
-				name: 'dependencies',
-				message: 'which dependencies would you like to add?',
-				choices: [
-					{name: 'Mocha', value: ['mocha', 'lastest']},
-					{name: 'Eslint', value: ['eslint', 'lastest']}
-				]
+        name: "pckgVersion",
+        message: "version",
+        type: "input",
+        default: "1.0.0"
       },
-      // {
-      //   name: "pckgName",
-      //   message: "package name",
-      //   type: "input",
-      //   default: dirname
-      // },
-      // {
-      //   name: "pckgVersion",
-      //   message: "version",
-      //   type: "input",
-      //   default: "1.0.0"
-      // },
-      // {name: "pckgDesc", message: "description", type: "input"},
-      // {
-      //   name: "entryPoint",
-      //   message: "entry point",
-      //   type: "input",
-      //   default: "function/handler"
-      // },
-      // {name: "author", message: "author", type: "input"},
-      // {name: "license", message: "license", type: "input", default: "ISC"},
+      {name: "pckgDesc", message: "description", type: "input"},
+      {
+        name: "entryPoint",
+        message: "entry point",
+        type: "input",
+        default: "handler.js"
+      },
+      {name: "author", message: "author", type: "input"},
+      {name: "license", message: "license", type: "input", default: "ISC"},
       {
         name: "confirm",
         message: "everything looks good?",
@@ -69,14 +54,8 @@ export default class InitCommand extends Command {
        *  @description nodePlop have some issues about typeDef
        *  @example https://github.com/plopjs/node-plop/issues/194
        **/
-       let newDependencies = Object.fromEntries(questions.dependencies)
-       questions = {...questions, ext: "js"}
-       if(questions.typescript){
-        newDependencies = {...newDependencies, "typescript": "lastest"}   
-        questions = {...questions, ext: "ts"}
-			}
 
-      init.runActions({...questions, dependencies: newDependencies}).then(() => console.log("Done"));
+      init.runActions(questions).then(() => console.log("Done"));
     }
   }
 }
