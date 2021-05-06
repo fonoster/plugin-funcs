@@ -2,7 +2,7 @@ import {Command} from "@oclif/command";
 import {prompt} from "inquirer";
 import {join, basename} from "path";
 const nodePlop = require("node-plop");
-const plop = nodePlop(join(__dirname, "..", "..", "..", "func", "src", "plopfile.ts"));
+const plop = nodePlop(join(__dirname, "..", "..", "..", "src", "plopfile.ts"));
 const init = plop.getGenerator("init");
 
 export default class InitCommand extends Command {
@@ -12,8 +12,7 @@ export default class InitCommand extends Command {
   `;
 
   public async run() {
-    console.log("This utility will help you create a basic voice application");
-    console.log("to help you get start quickly. Press ^C at any time to quit.");
+    console.log("This utility will help you create a basic function");
 
     const dirname: string = basename(process.cwd());
     const  questions: any = await prompt([
