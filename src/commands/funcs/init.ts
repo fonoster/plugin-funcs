@@ -6,7 +6,7 @@ const plop = nodePlop(join(__dirname, "..", "..", "..", "src", "plopfile.ts"));
 const init = plop.getGenerator("init");
 
 export default class InitCommand extends Command {
-  static description = `creates a new empty application
+  static description = `creates a new empty function
   ...
   Extra documentation goes here
   `;
