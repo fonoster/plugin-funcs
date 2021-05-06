@@ -33,7 +33,7 @@ export default class InitCommand extends Command {
         name: "entryPoint",
         message: "entry point",
         type: "input",
-        default: "handler.js"
+        default: "handler.ts"
       },
       {name: "author", message: "author", type: "input"},
       {name: "license", message: "license", type: "input", default: "ISC"},
