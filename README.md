@@ -1,2 +1,3 @@
-# fonos-funcs-plugin
-🔥 Fonoster functions plugin
+# Funcs Plugin (Backed by OpenFaaS)
+
+🔥 Funcs Plugin
