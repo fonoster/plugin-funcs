@@ -1,3 +1,3 @@
-# Funcs Plugin (Backed by OpenFaaS)
+# Funcs Plugin (By OpenFaaS)
 
 🔥 Funcs Plugin
