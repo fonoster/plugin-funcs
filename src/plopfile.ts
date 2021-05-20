@@ -5,14 +5,20 @@ export default function (plop: any) {
       actions.push(
         {
           type: "add",
-          path: "{{cwd}}/function/package.json",
+          path: "{{cwd}}/func/function/package.json",
           templateFile: "templates/package.hbs",
           abortOnFail: true
         },
         {
           type: "add",
-          path: "{{cwd}}/function/{{entryPoint}}",
+          path: "{{cwd}}/func/function/{{entryPoint}}",
           templateFile: "templates/handler.hbs",
+          abortOnFail: true
+        },
+        {
+          type: "add",
+          path: "{{cwd}}/func/Dockerfile",
+          templateFile: "templates/dockerfile.hbs",
           abortOnFail: true
         }
       );

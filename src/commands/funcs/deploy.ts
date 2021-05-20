@@ -1,52 +1,50 @@
-import {Command, flags} from '@oclif/command'
-import DockerUtils from '../../utils/dockerUtils';
-import FileHelper from '../../utils/fileHelper';
-import RequestHelper from '../../utils/requestHelper';
-import FaasdService from '../../utils/faasdService';
-import { constants } from '../../utils/constants';
-import {basename, join} from "path";
-export default class DeployCommand extends Command {
-  static description = 'deploy a fonos function'
+import { Command, flags, flags as oclifFlags } from "@oclif/command";
+import FaasdManager from "../../utils/faasdmanager";
+import FaasdService from "../../utils/implementation/faasdserviceclient";
+import { DeployFunction } from "../../utils/types";
 
-  static examples = [
-    `$ oclif-example hello
-hello world from ./src/hello.ts!
-`,
-  ]
+export default class DeployCommand extends Command {
+  static description = "deploy a fonos function"
 
   static flags = {
-    help: flags.help({char: 'h'}),
-    // flag with a value (-n, --name=VALUE)
-    name: flags.string({char: 'n', description: 'name to print'}),
-    // flag with no value (-f, --force)
-    force: flags.boolean({char: 'f'}),
-  }
-
-  static args = [{name: 'file'}]
+    schedule: oclifFlags.string({
+      char: "s",
+      description: "function schedule",
+      required: false
+    })
+  };
 
   async run() {
+    const { flags } = this.parse(DeployCommand);
+
     console.log("This utility will help you deploy a Fonos function");
-    const _dockerUtils = new DockerUtils(this.log);
-    const _faasdService = new FaasdService();
-    const timeString = Date.now().toFixed(0).toString();
-    const workDirFunc = join("/tmp", timeString, "function");
-    const workDir = join("/tmp", timeString);
-    const dockerFileDir = join(workDir, "Dockerfile");
-    FileHelper.createDirectory(workDirFunc);
-    FileHelper.copySync(process.cwd(),workDirFunc);
-    
+    const _faasdManager = new FaasdManager(new FaasdService());
+    const pathPackageFunction = `${process.cwd()}/function/package.json`;
 
-    //Get Image
-    await RequestHelper.download(constants.DOCKERFILE,dockerFileDir, function(params:any) {
-    })
+    try {
+      const name = require(pathPackageFunction).name;
 
-    //Build image
-    await _dockerUtils.buildImage(workDir,timeString);
+      let request = { 
+        name: name,
+        baseDir: process.cwd()
+      } as DeployFunction;
 
-    //pushImage
-    await _dockerUtils.pushImage(timeString)
+      if (flags.schedule) {
+        request.schedule = flags.schedule;
+      };
 
-    const result = await _faasdService.deployFunction(constants.REPO+timeString,timeString)
+      await _faasdManager.deployFunction({
+        name: name,
+        baseDir: process.cwd()
+      });
+
+    } catch (e) {
+      if (e instanceof Error)
+        console.log("Can't load function!");
+      else
+        throw e;
+    }
+
   }
-  
+
 }
