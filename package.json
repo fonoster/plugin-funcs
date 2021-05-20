@@ -1,8 +1,8 @@
 {
-  "name": "func",
-  "description": "no desc",
+  "name": "@fonos/plugin-funcs",
+  "description": "Managment for Fonos Functions",
   "version": "0.1.0",
-  "author": "wardner @Wardner",
+  "author": "Wardner Lara @wardner, Raul Sanchez @speedymonster",
   "bugs": "https://github.com/Wardner/func/issues",
   "dependencies": {
     "@fonos/funcs": "^0.0.95",
