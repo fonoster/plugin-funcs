@@ -1,12 +1,18 @@
 {
   "name": "@fonos/plugin-funcs",
-  "description": "Managment for Fonos Functions",
+  "description": "Managament for Fonos Functions",
   "version": "0.1.0",
   "author": "Wardner Lara @wardner, Raul Sanchez @speedymonster",
-  "bugs": "https://github.com/Wardner/func/issues",
+  "scripts": {
+    "postpack": "rimraf oclif.manifest.json",
+    "prepack": "rimraf lib && tsc -b && oclif-dev manifest && oclif-dev readme",
+    "test": "nyc --extension .ts mocha --forbid-only \"test/**/*.test.ts\"",
+    "version": "oclif-dev readme && git add README.md"
+  },
+  "bugs": "https://github.com/fonoster/fonos-plugin-funcs/issues",
   "dependencies": {
-    "@fonos/funcs": "^0.0.95",
-    "@fonos/logger": "^0.0.94",
+    "@fonos/funcs": "^0.0.97",
+    "@fonos/logger": "^0.0.97",
     "@oclif/command": "^1.8.0",
     "@oclif/config": "^1.17.0",
     "@types/chai-as-promised": "^7.1.4",
@@ -26,15 +32,11 @@
     "@oclif/plugin-help": "^3.2.2",
     "@oclif/test": "^1.2.8",
     "@types/chai": "^4.2.17",
-    "@types/dockerode": "^3.2.3",
-    "@types/inquirer": "^7.3.1",
     "@types/mocha": "^5.2.7",
-    "@types/node": "^10.17.59",
     "@types/prettyjson": "0.0.29",
     "@types/sinon-chai": "^3.2.5",
     "chai": "^4.3.4",
     "chai-as-promised": "^7.1.1",
-    "dockerode": "^3.3.0",
     "dotenv": "^8.2.0",
     "globby": "^10.0.2",
     "mocha": "^5.2.0",
@@ -70,11 +72,5 @@
       "@oclif/plugin-help"
     ]
   },
-  "repository": "https://github.com/fonoster/fonos-plugin-funcs",
-  "scripts": {
-    "postpack": "rimraf oclif.manifest.json",
-    "prepack": "rimraf lib && tsc -b && oclif-dev manifest && oclif-dev readme",
-    "test": "nyc --extension .ts mocha --forbid-only \"test/**/*.test.ts\"",
-    "version": "oclif-dev readme && git add README.md"
-  }
+  "repository": "https://github.com/fonoster/fonos-plugin-funcs"
 }
