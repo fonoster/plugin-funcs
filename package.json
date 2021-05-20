@@ -1,7 +1,7 @@
 {
   "name": "func",
   "description": "no desc",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "author": "wardner @Wardner",
   "bugs": "https://github.com/Wardner/func/issues",
   "dependencies": {
