@@ -1,4 +1,4 @@
-import { Command, flags, flags as oclifFlags } from "@oclif/command";
+import { Command, flags as oclifFlags } from "@oclif/command";
 import FaasdManager from "../../utils/faasdmanager";
 import FaasdService from "../../utils/implementation/faasdserviceclient";
 import { DeployFunction } from "../../utils/types";
