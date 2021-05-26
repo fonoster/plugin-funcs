@@ -16,12 +16,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { CommonPB } from "@fonos/funcs";
-import { Command, flags as oclifFlags } from "@oclif/command";
+import {CommonPB} from "@fonos/funcs";
+import {Command, flags as oclifFlags} from "@oclif/command";
 import inquirer from "inquirer";
 import FaasdManager from "../../utils/faasd_manager";
 import FaasdService from "../../utils/implementation/faasd_service_client";
-import { Function } from "../../utils/types";
+import {Function} from "../../utils/types";
 const Table = require("easy-table");
 
 export default class ListCommand extends Command {
@@ -35,7 +35,7 @@ export default class ListCommand extends Command {
   };
 
   async run() {
-    const { flags } = this.parse(ListCommand);
+    const {flags} = this.parse(ListCommand);
     const _faasdManager = new FaasdManager(new FaasdService());
     try {
       const pageSize = flags.size;
@@ -44,26 +44,24 @@ export default class ListCommand extends Command {
       const view: CommonPB.View = CommonPB.View.BASIC;
 
       while (true) {
-
         const result = await _faasdManager.listFunctions({
-          pageSize:pageSize,
-          pageToken:pageToken,
-          view:view
+          pageSize: pageSize,
+          pageToken: pageToken,
+          view: view
         });
         const list = result.functions;
         pageToken = result.nextPageToken;
 
-
-           // Dont ask this if is the first time or empty data
-           if (list.length > 0 && !firstBatch) {
-            const answer: any = await inquirer.prompt([
-              {name: "q", message: "More", type: "confirm"}
-            ]);
-            if (!answer.q) break;
-          }
+        // Dont ask this if is the first time or empty data
+        if (list.length > 0 && !firstBatch) {
+          const answer: any = await inquirer.prompt([
+            {name: "q", message: "More", type: "confirm"}
+          ]);
+          if (!answer.q) break;
+        }
 
         const t = new Table();
-     
+
         list.forEach((func: Function) => {
           t.cell("Name", func.name);
           t.cell("Image", func.image);
@@ -76,13 +74,9 @@ export default class ListCommand extends Command {
 
         firstBatch = false;
         if (!pageToken) break;
-
       }
     } catch (e) {
       console.log(e);
-
     }
-
   }
-
 }

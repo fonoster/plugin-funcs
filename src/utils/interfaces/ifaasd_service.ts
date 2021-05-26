@@ -16,11 +16,17 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { DeployFunction, GetFunctionResponse, ListFunctionRequest, ListFunctionResponse, LogFunctionRequest } from "../types";
+import {
+  DeployFunction,
+  GetFunctionResponse,
+  ListFunctionRequest,
+  ListFunctionResponse,
+  LogFunctionRequest
+} from "../types";
 export default interface IFaasdService {
-    deploy(request: DeployFunction): void
-    get(ref: string): Promise<GetFunctionResponse>
-    list(request: ListFunctionRequest): Promise<ListFunctionResponse>
-    delele(ref: string): Promise<string>
-    logs(request: LogFunctionRequest): void
+  deploy(request: DeployFunction): void;
+  get(ref: string): Promise<GetFunctionResponse>;
+  list(request: ListFunctionRequest): Promise<ListFunctionResponse>;
+  delele(ref: string): Promise<string>;
+  logs(request: LogFunctionRequest): void;
 }

@@ -33,7 +33,7 @@ export default class InitCommand extends Command {
     console.log("This utility will help you create a basic function");
 
     const dirname: string = basename(process.cwd());
-    const  questions: any = await prompt([
+    const questions = await prompt([
       {
         name: "pckgName",
         message: "package name",

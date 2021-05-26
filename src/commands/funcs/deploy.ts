@@ -16,13 +16,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { Command, flags as oclifFlags } from "@oclif/command";
+import {Command, flags as oclifFlags} from "@oclif/command";
 import FaasdManager from "../../utils/faasd_manager";
 import FaasdService from "../../utils/implementation/faasd_service_client";
-import { DeployFunction } from "../../utils/types";
+import {DeployFunction} from "../../utils/types";
 
 export default class DeployCommand extends Command {
-  static description = "deploy a fonos function"
+  static description = "deploy a fonos function";
 
   static flags = {
     schedule: oclifFlags.string({
@@ -33,7 +33,7 @@ export default class DeployCommand extends Command {
   };
 
   async run() {
-    const { flags } = this.parse(DeployCommand);
+    const {flags} = this.parse(DeployCommand);
 
     console.log("This utility will help you deploy a Fonos function");
     const _faasdManager = new FaasdManager(new FaasdService());
@@ -42,27 +42,22 @@ export default class DeployCommand extends Command {
     try {
       const name = require(pathPackageFunction).name;
 
-      let request = { 
+      const request = {
         name: name,
         baseDir: process.cwd()
       } as DeployFunction;
 
       if (flags.schedule) {
         request.schedule = flags.schedule;
-      };
+      }
 
       await _faasdManager.deployFunction({
         name: name,
         baseDir: process.cwd()
       });
-
     } catch (e) {
-      if (e instanceof Error)
-        console.log("Can't load function!");
-      else
-        throw e;
+      if (e instanceof Error) console.log("Can't load function!");
+      else throw e;
     }
-
   }
-
 }
