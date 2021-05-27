@@ -17,10 +17,16 @@
  * limitations under the License.
  */
 import IFaasdService from "../interfaces/ifaasd_service";
-import { DeployFunction, GetFunctionResponse, ListFunctionRequest, ListFunctionResponse, LogFunctionRequest } from "../types";
+import {
+  DeployFunction,
+  GetFunctionResponse,
+  ListFunctionRequest,
+  ListFunctionResponse,
+  LogFunctionRequest
+} from "../types";
 import FuncService from "@fonos/funcs";
 import Funcs from "@fonos/funcs";
-import { DeployFuncRequest } from "@fonos/funcs/dist/types";
+import {DeployFuncRequest} from "@fonos/funcs/dist/types";
 export default class FaasdService implements IFaasdService {
   _service: FuncService;
   constructor() {
@@ -49,7 +55,7 @@ export default class FaasdService implements IFaasdService {
   }
 
   async get(ref: string): Promise<GetFunctionResponse> {
-    let result = await this._service.getFunc({ name: ref });
+    const result = await this._service.getFunc({name: ref});
     return result;
   }
   async list(request: ListFunctionRequest): Promise<ListFunctionResponse> {
@@ -68,7 +74,7 @@ export default class FaasdService implements IFaasdService {
   }
 
   async logs(request: LogFunctionRequest) {
-    let stream = await this._service.getFuncLogs(request);
+    const stream = await this._service.getFuncLogs(request);
     await new Promise<void>((resolve, reject) => {
       stream.onMessage((msg: any) => {
         console.log(msg.text);

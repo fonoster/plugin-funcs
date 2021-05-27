@@ -16,17 +16,17 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { Command } from '@oclif/command'
-import { cli } from "cli-ux";
-import FaasdManager from '../../utils/faasd_manager'
-import FaasdService from '../../utils/implementation/faasd_service_client';
+import {Command} from "@oclif/command";
+import {cli} from "cli-ux";
+import FaasdManager from "../../utils/faasd_manager";
+import FaasdService from "../../utils/implementation/faasd_service_client";
 export default class DeleteCommand extends Command {
   static description = "removes a function";
 
-  static args = [{ name: 'ref' }]
+  static args = [{name: "ref"}];
 
   async run() {
-    const { args } = this.parse(DeleteCommand);
+    const {args} = this.parse(DeleteCommand);
     const _faasdManager = new FaasdManager(new FaasdService());
     try {
       cli.action.start("removing a fonos function");
@@ -34,10 +34,7 @@ export default class DeleteCommand extends Command {
       await cli.wait(1000);
       cli.action.stop("Done");
     } catch (e) {
-      console.log('Unable to remove!');
-
+      console.log("Unable to remove!");
     }
-
   }
-
 }

@@ -1,7 +1,7 @@
 export default function (plop: any) {
   plop.setGenerator("init", {
-    actions: function (data: any) {
-      let actions = [];
+    actions: function () {
+      const actions = [];
       actions.push(
         {
           type: "add",
@@ -23,6 +23,6 @@ export default function (plop: any) {
         }
       );
       return actions;
-    },
+    }
   });
 }
