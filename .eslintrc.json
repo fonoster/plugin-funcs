@@ -21,6 +21,11 @@
     "quotes": ["error", "double"],
     "no-loops/no-loops": 2,
     "no-console": 1,       // Means warning
-    "prettier/prettier": 2 // Means error
+    "prettier/prettier":  [
+      "error",
+      {
+        "endOfLine": "auto"
+      }
+    ] // Means error
   }
 }
