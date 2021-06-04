@@ -18,7 +18,7 @@
  */
 import {CommonPB} from "@fonos/funcs";
 import {Command, flags as oclifFlags} from "@oclif/command";
-import inquirer from "inquirer";
+const inquirer = require("inquirer")
 import FaasdManager from "../../utils/faasd_manager";
 import FaasdService from "../../utils/implementation/faasd_service_client";
 import {Function} from "../../utils/types";
