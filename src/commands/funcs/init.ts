@@ -17,11 +17,12 @@
  * limitations under the License.
  */
 import {Command} from "@oclif/command";
-import {prompt} from "inquirer";
+// import {prompt} from "inquirer";
 import {join, basename} from "path";
 const nodePlop = require("node-plop");
 const plop = nodePlop(join(__dirname, "..", "..", "..", "src", "plopfile.ts"));
 const init = plop.getGenerator("init");
+const inquirer = require("inquirer")
 
 export default class InitCommand extends Command {
   static description = `creates a new empty function
@@ -33,7 +34,7 @@ export default class InitCommand extends Command {
     console.log("This utility will help you create a basic function");
 
     const dirname: string = basename(process.cwd());
-    const questions = await prompt([
+    const questions = await inquirer.prompt([
       {
         name: "pckgName",
         message: "package name",
