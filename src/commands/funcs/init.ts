@@ -58,7 +58,7 @@ export default class InitCommand extends Command {
       {name: "license", message: "license", type: "input", default: "ISC"},
       {
         name: "confirm",
-        message: "everything looks good?",
+        message: "ready?",
         type: "confirm"
       }
     ]);
