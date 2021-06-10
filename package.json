@@ -65,7 +65,7 @@
     "commands": "./dist/commands",
     "topics": {
       "funcs": {
-        "description": "Fonos command"
+        "description": "Manage cloud functions"
       }
     },
     "bin": "oclif-example",
