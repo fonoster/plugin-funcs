@@ -53,7 +53,6 @@ class ListCommand extends command_1.Command {
                 const t = new Table();
                 list.forEach((func) => {
                     t.cell("Name", func.name);
-                    t.cell("Image", func.image);
                     t.cell("Invocation Count", func.invocationCount);
                     t.cell("Replicas", func.replicas);
                     t.newRow();
