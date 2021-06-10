@@ -16,11 +16,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import {mute} from "@fonos/logger"
-import { Command, flags as oclifFlags } from "@oclif/command";
+import {mute} from "@fonos/logger";
+import {Command, flags as oclifFlags} from "@oclif/command";
 import FaasdManager from "../../utils/faasd_manager";
 import FaasdService from "../../utils/implementation/faasd_service_client";
-import { DeployFunction } from "../../utils/types";
+import {DeployFunction} from "../../utils/types";
 mute();
 export default class DeployCommand extends Command {
   static description = "deploy a fonos function";
@@ -36,7 +36,7 @@ export default class DeployCommand extends Command {
   async run() {
     const {flags} = this.parse(DeployCommand);
 
-    console.log("This utility will help you deploy a Fonos function");
+    console.log("Deploying function to cloud backend");
     const _faasdManager = new FaasdManager(new FaasdService());
     const pathPackageFunction = `${process.cwd()}/function/package.json`;
     try {
@@ -56,12 +56,10 @@ export default class DeployCommand extends Command {
         baseDir: process.cwd()
       });
     } catch (e) {
-      if (e instanceof Error){
+      if (e instanceof Error) {
         console.log("Can't load function!");
-        console.log(e)
-      }
-      else
-        throw e;
+        console.log(e);
+      } else throw e;
     }
   }
 }

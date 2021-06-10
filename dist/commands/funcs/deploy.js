@@ -27,7 +27,7 @@ logger_1.mute();
 class DeployCommand extends command_1.Command {
     async run() {
         const { flags } = this.parse(DeployCommand);
-        console.log("This utility will help you deploy a Fonos function");
+        console.log("Deploying function to cloud backend");
         const _faasdManager = new faasd_manager_1.default(new faasd_service_client_1.default());
         const pathPackageFunction = `${process.cwd()}/function/package.json`;
         try {
