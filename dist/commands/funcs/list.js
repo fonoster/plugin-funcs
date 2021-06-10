@@ -79,3 +79,4 @@ ListCommand.flags = {
         description: "functions of result per page"
     })
 };
+ListCommand.aliases = ["funcs:ls"];

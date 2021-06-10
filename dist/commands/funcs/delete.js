@@ -40,4 +40,5 @@ class DeleteCommand extends command_1.Command {
 }
 exports.default = DeleteCommand;
 DeleteCommand.description = "removes a function";
+DeleteCommand.aliases = ["funcs:del", "funcs:rm"];
 DeleteCommand.args = [{ name: "ref" }];

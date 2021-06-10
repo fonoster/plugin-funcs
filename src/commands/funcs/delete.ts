@@ -22,6 +22,7 @@ import FaasdManager from "../../utils/faasd_manager";
 import FaasdService from "../../utils/implementation/faasd_service_client";
 export default class DeleteCommand extends Command {
   static description = "removes a function";
+  static aliases = ["funcs:del", "funcs:rm"];
 
   static args = [{name: "ref"}];
 

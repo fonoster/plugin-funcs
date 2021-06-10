@@ -18,7 +18,7 @@
  */
 import {CommonPB} from "@fonos/funcs";
 import {Command, flags as oclifFlags} from "@oclif/command";
-const inquirer = require("inquirer")
+const inquirer = require("inquirer");
 import FaasdManager from "../../utils/faasd_manager";
 import FaasdService from "../../utils/implementation/faasd_service_client";
 import {Function} from "../../utils/types";
@@ -33,6 +33,7 @@ export default class ListCommand extends Command {
       description: "functions of result per page"
     })
   };
+  static aliases = ["funcs:ls"];
 
   async run() {
     const {flags} = this.parse(ListCommand);
