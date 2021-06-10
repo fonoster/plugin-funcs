@@ -13,7 +13,7 @@
   },
   "bugs": "https://github.com/fonoster/fonos-plugin-funcs/issues",
   "dependencies": {
-    "@fonos/funcs": "^0.0.97",
+    "@fonos/funcs": "^0.0.112",
     "@fonos/logger": "^0.0.112",
     "@oclif/command": "^1.8.0",
     "@oclif/config": "^1.17.0",
@@ -57,7 +57,7 @@
     "/npm-shrinkwrap.json",
     "/oclif.manifest.json"
   ],
-  "homepage": "https://github.com/Wardner/func",
+  "homepage": "https://github.com/fonoster/fonos-plugin-funcs",
   "keywords": [
     "oclif-plugin"
   ],
@@ -66,7 +66,7 @@
     "commands": "./dist/commands",
     "topics": {
       "funcs": {
-        "description": "Manage cloud functions"
+        "description": "manage cloud functions"
       }
     },
     "bin": "oclif-example",
