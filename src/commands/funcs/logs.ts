@@ -40,17 +40,14 @@ export default class DeleteCommand extends Command {
 
   async run() {
     const {flags, args} = this.parse(DeleteCommand);
+    console.log("Getting functions logs");
     const _faasdManager = new FaasdManager(new FaasdService());
     try {
-      cli.action.start("getting function logs");
       await _faasdManager.logFunction({
         follow: flags.follow,
         name: args.name,
         tail: flags.tail
       });
-
-      await cli.wait(1000);
-      cli.action.stop("Done");
     } catch (e) {
       console.log("Unable to fetch");
     }

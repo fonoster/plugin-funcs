@@ -20,22 +20,19 @@ const tslib_1 = require("tslib");
  * limitations under the License.
  */
 const command_1 = require("@oclif/command");
-const cli_ux_1 = require("cli-ux");
 const faasd_manager_1 = tslib_1.__importDefault(require("../../utils/faasd_manager"));
 const faasd_service_client_1 = tslib_1.__importDefault(require("../../utils/implementation/faasd_service_client"));
 class DeleteCommand extends command_1.Command {
     async run() {
         const { flags, args } = this.parse(DeleteCommand);
+        console.log("Getting functions logs");
         const _faasdManager = new faasd_manager_1.default(new faasd_service_client_1.default());
         try {
-            cli_ux_1.cli.action.start("getting function logs");
             await _faasdManager.logFunction({
                 follow: flags.follow,
                 name: args.name,
                 tail: flags.tail
             });
-            await cli_ux_1.cli.wait(1000);
-            cli_ux_1.cli.action.stop("Done");
         }
         catch (e) {
             console.log("Unable to fetch");
