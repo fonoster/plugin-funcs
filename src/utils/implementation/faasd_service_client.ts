@@ -27,6 +27,8 @@ import {
 import FuncService from "@fonos/funcs";
 import Funcs from "@fonos/funcs";
 import {DeployFuncRequest} from "@fonos/funcs/dist/types";
+const consola = require('consola')
+
 export default class FaasdService implements IFaasdService {
   _service: FuncService;
   constructor() {
@@ -43,7 +45,7 @@ export default class FaasdService implements IFaasdService {
 
     await new Promise<void>((resolve, reject) => {
       stream.onMessage((msg: any) => {
-        console.log(msg.text);
+        consola.info(msg.text);
       });
       stream.onFinish(() => {
         resolve();
@@ -77,7 +79,7 @@ export default class FaasdService implements IFaasdService {
     const stream = await this._service.getFuncLogs(request);
     await new Promise<void>((resolve, reject) => {
       stream.onMessage((msg: any) => {
-        console.log(msg.text);
+        consola.info(msg.text);
       });
       stream.onFinish(() => {
         resolve();
