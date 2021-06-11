@@ -21,8 +21,10 @@ const tslib_1 = require("tslib");
  */
 const logger_1 = require("@fonos/logger");
 const command_1 = require("@oclif/command");
+const errors_1 = require("@oclif/errors");
 const faasd_manager_1 = tslib_1.__importDefault(require("../../utils/faasd_manager"));
 const faasd_service_client_1 = tslib_1.__importDefault(require("../../utils/implementation/faasd_service_client"));
+const fs = tslib_1.__importStar(require("fs"));
 logger_1.mute();
 class DeployCommand extends command_1.Command {
     async run() {
@@ -31,6 +33,9 @@ class DeployCommand extends command_1.Command {
         const _faasdManager = new faasd_manager_1.default(new faasd_service_client_1.default());
         const pathPackageFunction = `${process.cwd()}/function/package.json`;
         try {
+            if (!fs.existsSync(pathPackageFunction)) {
+                throw new errors_1.CLIError("Could not find package.json. Be sure to be inside the functions directory.");
+            }
             const name = require(pathPackageFunction).name;
             const request = {
                 name: name,
@@ -45,12 +50,7 @@ class DeployCommand extends command_1.Command {
             });
         }
         catch (e) {
-            if (e instanceof Error) {
-                console.log("Can't load function!");
-                console.log(e);
-            }
-            else
-                throw e;
+            throw new errors_1.CLIError(e);
         }
     }
 }
