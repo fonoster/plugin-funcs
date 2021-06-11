@@ -17,7 +17,6 @@
  * limitations under the License.
  */
 import {Command} from "@oclif/command";
-// import {prompt} from "inquirer";
 import {join, basename} from "path";
 const nodePlop = require("node-plop");
 const plop = nodePlop(join(__dirname, "..", "..", "..", "src", "plopfile.ts"));
@@ -58,7 +57,7 @@ export default class InitCommand extends Command {
       {name: "license", message: "license", type: "input", default: "ISC"},
       {
         name: "confirm",
-        message: "everything looks good?",
+        message: "ready?",
         type: "confirm"
       }
     ]);
