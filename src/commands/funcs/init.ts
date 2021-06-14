@@ -83,7 +83,10 @@ export default class InitCommand extends Command {
        *  @description nodePlop have some issues about typeDef
        *  @example https://github.com/plopjs/node-plop/issues/194
        **/
-      init.runActions(questions).then(() => console.log("Done")).then(() => tree(questions));
+      init
+        .runActions(questions)
+        .then(() => console.log("Done"))
+        .then(() => tree(questions));
     }
   }
 }

@@ -1,7 +1,9 @@
 {
   "name": "{{ lowerCase pckgName }}",
   "version": "{{ lowerCase pckgVersion }}",
+  {{#if author}}
   "author": "{{ author }}",
+  {{/if}}
   "main": "dist/index.js",
   {{#if pckgDesc}}
   "description": "{{ pckgDesc }}",
