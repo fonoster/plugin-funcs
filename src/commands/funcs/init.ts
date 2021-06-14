@@ -86,7 +86,7 @@ export default class InitCommand extends Command {
       init
         .runActions(questions)
         .then(() => console.log("Done"))
-        .then(() => tree(questions));
+        .then(tree(questions));
     }
   }
 }
