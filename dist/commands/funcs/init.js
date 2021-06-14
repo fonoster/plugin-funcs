@@ -19,8 +19,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * limitations under the License.
  */
 const command_1 = require("@oclif/command");
-// import {prompt} from "inquirer";
 const path_1 = require("path");
+const tree_1 = require("../../utils/tree");
 const nodePlop = require("node-plop");
 const plop = nodePlop(path_1.join(__dirname, "..", "..", "..", "src", "plopfile.ts"));
 const init = plop.getGenerator("init");
@@ -30,6 +30,21 @@ class InitCommand extends command_1.Command {
         console.log("This utility will help you create a basic function");
         const dirname = path_1.basename(process.cwd());
         const questions = await inquirer.prompt([
+            {
+                name: "ext",
+                message: "What language would you like to use to write Cloud Functions? (Use arrow keys)",
+                type: "list",
+                choices: [
+                    { name: "Typescript", value: "ts" },
+                    { name: "Javascript", value: "js" }
+                ],
+                default: "Typescript"
+            },
+            {
+                name: "eslint",
+                message: "Do you want to use ESLint to catch probable bugs and enforce style?",
+                type: "confirm"
+            },
             {
                 name: "pckgName",
                 message: "package name",
@@ -43,17 +58,11 @@ class InitCommand extends command_1.Command {
                 default: "1.0.0"
             },
             { name: "pckgDesc", message: "description", type: "input" },
-            {
-                name: "entryPoint",
-                message: "entry point",
-                type: "input",
-                default: "handler.ts"
-            },
             { name: "author", message: "author", type: "input" },
             { name: "license", message: "license", type: "input", default: "ISC" },
             {
                 name: "confirm",
-                message: "everything looks good?",
+                message: "ready?",
                 type: "confirm"
             }
         ]);
@@ -66,7 +75,7 @@ class InitCommand extends command_1.Command {
              *  @description nodePlop have some issues about typeDef
              *  @example https://github.com/plopjs/node-plop/issues/194
              **/
-            init.runActions(questions).then(() => console.log("Done"));
+            init.runActions(questions).then(() => console.log("Done")).then(() => tree_1.tree(questions));
         }
     }
 }

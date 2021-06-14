@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "skipLibCheck": true,
+    "composite": true,
+    "outDir": "./dist",
+    "rootDir": ".",
+    "declaration": true,
+    "noImplicitAny": false,
+    "esModuleInterop": true,
+    "strict": true,
+    "module": "commonjs",
+    "target": "es2020",
+    "lib": [ "es2020" ],
+    "allowJs": true
+  },
+  "compileOnSave": true,
+  "include": [
+  {{#if eslint}}
+    "_.eslintrc.js",
+  {{/if}}
+    "src"
+  ]
+}

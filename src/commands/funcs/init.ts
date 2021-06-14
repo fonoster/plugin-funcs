@@ -18,10 +18,11 @@
  */
 import {Command} from "@oclif/command";
 import {join, basename} from "path";
+import {tree} from "../../utils/tree";
 const nodePlop = require("node-plop");
 const plop = nodePlop(join(__dirname, "..", "..", "..", "src", "plopfile.ts"));
 const init = plop.getGenerator("init");
-const inquirer = require("inquirer")
+const inquirer = require("inquirer");
 
 export default class InitCommand extends Command {
   static description = `creates a new empty function
@@ -35,6 +36,23 @@ export default class InitCommand extends Command {
     const dirname: string = basename(process.cwd());
     const questions = await inquirer.prompt([
       {
+        name: "ext",
+        message:
+          "What language would you like to use to write Cloud Functions? (Use arrow keys)",
+        type: "list",
+        choices: [
+          {name: "Typescript", value: "ts"},
+          {name: "Javascript", value: "js"}
+        ],
+        default: "Typescript"
+      },
+      {
+        name: "eslint",
+        message:
+          "Do you want to use ESLint to catch probable bugs and enforce style?",
+        type: "confirm"
+      },
+      {
         name: "pckgName",
         message: "package name",
         type: "input",
@@ -47,12 +65,6 @@ export default class InitCommand extends Command {
         default: "1.0.0"
       },
       {name: "pckgDesc", message: "description", type: "input"},
-      {
-        name: "entryPoint",
-        message: "entry point",
-        type: "input",
-        default: "handler.ts"
-      },
       {name: "author", message: "author", type: "input"},
       {name: "license", message: "license", type: "input", default: "ISC"},
       {
@@ -71,8 +83,7 @@ export default class InitCommand extends Command {
        *  @description nodePlop have some issues about typeDef
        *  @example https://github.com/plopjs/node-plop/issues/194
        **/
-
-      init.runActions(questions).then(() => console.log("Done"));
+      init.runActions(questions).then(() => console.log("Done")).then(() => tree(questions));
     }
   }
 }
