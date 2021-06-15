@@ -19,6 +19,7 @@
 import {Command} from "@oclif/command";
 import {join, basename} from "path";
 import {tree} from "../../utils/tree";
+const fullname = require("fullname");
 const nodePlop = require("node-plop");
 const plop = nodePlop(join(__dirname, "..", "..", "..", "src", "plopfile.ts"));
 const init = plop.getGenerator("init");
@@ -65,7 +66,7 @@ export default class InitCommand extends Command {
         default: "1.0.0"
       },
       {name: "pckgDesc", message: "description", type: "input"},
-      {name: "author", message: "author", type: "input"},
+      {name: "author", message: "author", type: "input", default: await fullname()},
       {name: "license", message: "license", type: "input", default: "ISC"},
       {
         name: "confirm",
