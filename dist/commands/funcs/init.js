@@ -78,7 +78,7 @@ class InitCommand extends command_1.Command {
             init
                 .runActions(questions)
                 .then(() => console.log("Done"))
-                .then(() => tree_1.tree(questions));
+                .then(tree_1.tree(questions));
         }
     }
 }

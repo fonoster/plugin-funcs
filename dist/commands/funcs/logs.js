@@ -20,11 +20,14 @@ const tslib_1 = require("tslib");
  * limitations under the License.
  */
 const command_1 = require("@oclif/command");
+const errors_1 = require("@oclif/errors");
 const faasd_manager_1 = tslib_1.__importDefault(require("../../utils/faasd_manager"));
 const faasd_service_client_1 = tslib_1.__importDefault(require("../../utils/implementation/faasd_service_client"));
 class DeleteCommand extends command_1.Command {
     async run() {
         const { flags, args } = this.parse(DeleteCommand);
+        if (!args.name)
+            throw new errors_1.CLIError("No function name was given");
         console.log("Getting functions logs");
         const _faasdManager = new faasd_manager_1.default(new faasd_service_client_1.default());
         try {

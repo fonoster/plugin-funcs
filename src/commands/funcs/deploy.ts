@@ -18,7 +18,7 @@
  */
 import {mute} from "@fonos/logger";
 import {Command, flags as oclifFlags} from "@oclif/command";
-import { CLIError } from "@oclif/errors";
+import {CLIError} from "@oclif/errors";
 import FaasdManager from "../../utils/faasd_manager";
 import FaasdService from "../../utils/implementation/faasd_service_client";
 import {DeployFunction} from "../../utils/types";
@@ -43,7 +43,9 @@ export default class DeployCommand extends Command {
     const pathPackageFunction = `${process.cwd()}/function/package.json`;
     try {
       if (!fs.existsSync(pathPackageFunction)) {
-        throw new CLIError("Could not find package.json. Be sure to be inside the functions directory.");
+        throw new CLIError(
+          "Could not find package.json. Be sure to be inside the functions directory."
+        );
       }
       const name = require(pathPackageFunction).name;
 

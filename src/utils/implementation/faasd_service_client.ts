@@ -27,7 +27,7 @@ import {
 import FuncService from "@fonos/funcs";
 import Funcs from "@fonos/funcs";
 import {DeployFuncRequest} from "@fonos/funcs/dist/types";
-const consola = require('consola')
+const consola = require("consola");
 
 export default class FaasdService implements IFaasdService {
   _service: FuncService;

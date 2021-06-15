@@ -17,7 +17,7 @@
  * limitations under the License.
  */
 import {Command, flags as oclifFlags} from "@oclif/command";
-import {cli} from "cli-ux";
+import {CLIError} from "@oclif/errors";
 import FaasdManager from "../../utils/faasd_manager";
 import FaasdService from "../../utils/implementation/faasd_service_client";
 export default class DeleteCommand extends Command {
@@ -40,6 +40,7 @@ export default class DeleteCommand extends Command {
 
   async run() {
     const {flags, args} = this.parse(DeleteCommand);
+    if (!args.name) throw new CLIError("No function name was given");
     console.log("Getting functions logs");
     const _faasdManager = new FaasdManager(new FaasdService());
     try {

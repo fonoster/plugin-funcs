@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const tslib_1 = require("tslib");
 const funcs_1 = tslib_1.__importDefault(require("@fonos/funcs"));
 const funcs_2 = tslib_1.__importDefault(require("@fonos/funcs"));
-const consola = require('consola');
+const consola = require("consola");
 class FaasdService {
     constructor() {
         this._service = new funcs_1.default();
