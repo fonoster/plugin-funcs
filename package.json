@@ -4,6 +4,7 @@
   "version": "0.6.2",
   "author": "Wardner Lara @wardner, Raul Sanchez @speedymonster",
   "scripts": {
+    "prepack": "rimraf lib && tsc -b && oclif-dev manifest && oclif-dev readme",
     "postpack": "rimraf oclif.manifest.json",
     "test": "nyc --extension .ts mocha --forbid-only \"test/**/*.test.ts\"",
     "build": "tsc",
