@@ -1,11 +1,10 @@
 {
   "name": "@fonos/plugin-funcs",
   "description": "Managament for Fonos Functions",
-  "version": "0.6.0",
+  "version": "0.6.2",
   "author": "Wardner Lara @wardner, Raul Sanchez @speedymonster",
   "scripts": {
     "postpack": "rimraf oclif.manifest.json",
-    "prepack": "rimraf dist && tsc -b && oclif-dev manifest && oclif-dev readme",
     "test": "nyc --extension .ts mocha --forbid-only \"test/**/*.test.ts\"",
     "build": "tsc",
     "lint": "eslint src --ext .ts",
