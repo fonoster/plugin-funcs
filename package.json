@@ -1,7 +1,7 @@
 {
   "name": "@fonos/plugin-funcs",
   "description": "Managament for Fonos Functions",
-  "version": "0.6.2",
+  "version": "0.6.3",
   "author": "Wardner Lara @wardner, Raul Sanchez @speedymonster",
   "scripts": {
     "prepack": "rimraf lib && tsc -b && oclif-dev manifest && oclif-dev readme",
@@ -67,7 +67,7 @@
     "commands": "./dist/commands",
     "topics": {
       "funcs": {
-        "description": "manage cloud functions"
+        "description": "manage cloud functions(experimental)"
       }
     },
     "bin": "oclif-example",
