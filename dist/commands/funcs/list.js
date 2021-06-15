@@ -19,6 +19,7 @@ const tslib_1 = require("tslib");
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+require("../../config");
 const funcs_1 = require("@fonos/funcs");
 const command_1 = require("@oclif/command");
 const inquirer = require("inquirer");

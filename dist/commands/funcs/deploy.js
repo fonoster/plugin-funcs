@@ -19,13 +19,12 @@ const tslib_1 = require("tslib");
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-const logger_1 = require("@fonos/logger");
+require("../../config");
 const command_1 = require("@oclif/command");
 const errors_1 = require("@oclif/errors");
 const faasd_manager_1 = tslib_1.__importDefault(require("../../utils/faasd_manager"));
 const faasd_service_client_1 = tslib_1.__importDefault(require("../../utils/implementation/faasd_service_client"));
 const fs = tslib_1.__importStar(require("fs"));
-logger_1.mute();
 class DeployCommand extends command_1.Command {
     async run() {
         const { flags } = this.parse(DeployCommand);

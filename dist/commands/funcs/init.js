@@ -18,6 +18,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+require("../../config");
 const command_1 = require("@oclif/command");
 const path_1 = require("path");
 const tree_1 = require("../../utils/tree");

@@ -16,6 +16,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+import "../../config";
 import {Command, flags} from "@oclif/command";
 import {CLIError} from "@oclif/errors";
 import {render} from "prettyjson";

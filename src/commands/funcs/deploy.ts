@@ -16,14 +16,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import {mute} from "@fonos/logger";
+import "../../config";
 import {Command, flags as oclifFlags} from "@oclif/command";
 import {CLIError} from "@oclif/errors";
 import FaasdManager from "../../utils/faasd_manager";
 import FaasdService from "../../utils/implementation/faasd_service_client";
 import {DeployFunction} from "../../utils/types";
 import * as fs from "fs";
-mute();
 export default class DeployCommand extends Command {
   static description = "deploy a fonos function";
 

@@ -16,6 +16,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+import "../../config";
 import {CommonPB} from "@fonos/funcs";
 import {Command, flags as oclifFlags} from "@oclif/command";
 const inquirer = require("inquirer");

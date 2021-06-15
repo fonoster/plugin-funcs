@@ -19,6 +19,7 @@ const tslib_1 = require("tslib");
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+require("../../config");
 const command_1 = require("@oclif/command");
 const cli_ux_1 = require("cli-ux");
 const faasd_manager_1 = tslib_1.__importDefault(require("../../utils/faasd_manager"));
