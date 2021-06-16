@@ -1,11 +1,11 @@
 {
   "name": "@fonos/plugin-funcs",
   "description": "Managament for Fonos Functions",
-  "version": "0.7.0",
+  "version": "0.6.7",
   "author": "Wardner Lara @wardner, Raul Sanchez @speedymonster",
   "scripts": {
+    "prepack": "rimraf lib && tsc -b && oclif-dev manifest && oclif-dev readme",
     "postpack": "rimraf oclif.manifest.json",
-    "prepack": "rimraf dist && tsc -b && oclif-dev manifest && oclif-dev readme",
     "test": "nyc --extension .ts mocha --forbid-only \"test/**/*.test.ts\"",
     "build": "tsc",
     "lint": "eslint src --ext .ts",
@@ -13,8 +13,8 @@
   },
   "bugs": "https://github.com/fonoster/fonos-plugin-funcs/issues",
   "dependencies": {
-    "@fonos/funcs": "^0.0.112",
-    "@fonos/logger": "^0.0.112",
+    "@fonos/funcs": "^0.0.117",
+    "@fonos/logger": "^0.0.117",
     "@oclif/command": "^1.8.0",
     "@oclif/config": "^1.17.0",
     "cli-ux": "^5.5.1",
@@ -67,7 +67,7 @@
     "commands": "./dist/commands",
     "topics": {
       "funcs": {
-        "description": "manage cloud functions"
+        "description": "manage cloud functions (experimental)"
       }
     },
     "bin": "oclif-example",
