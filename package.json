@@ -8,8 +8,10 @@
     "prepack": "rimraf dist && tsc -b && oclif-dev manifest && oclif-dev readme",
     "test": "nyc --extension .ts mocha --forbid-only \"test/**/*.test.ts\"",
     "build": "tsc",
+    "copyMySpecialFiles": "copyfiles --error --up 1 src/templates/**/**.* dist",
     "lint": "eslint src --ext .ts",
-    "version": "oclif-dev readme && git add README.md"
+    "version": "oclif-dev readme && git add README.md",
+    "postbuild": "npm run copyMySpecialFiles"
   },
   "bugs": "https://github.com/fonoster/fonos-plugin-funcs/issues",
   "dependencies": {
@@ -38,6 +40,7 @@
     "@types/request": "^2.48.5",
     "@typescript-eslint/eslint-plugin": "^4.25.0",
     "@typescript-eslint/parser": "^4.26.0",
+    "copyfiles": "^2.4.1",
     "eslint": "^7.23.0",
     "eslint-config-google": "^0.14.0",
     "eslint-config-prettier": "^8.1.0",

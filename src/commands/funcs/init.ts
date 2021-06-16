@@ -22,7 +22,7 @@ import {join, basename} from "path";
 import {tree} from "../../utils/tree";
 const fullname = require("fullname");
 const nodePlop = require("node-plop");
-const plop = nodePlop(join(__dirname, "..", "..", "..", "src", "plopfile.ts"));
+const plop = nodePlop(join(__dirname, "..", "..", "..", "dist", "plopfile.js"));
 const init = plop.getGenerator("init");
 const inquirer = require("inquirer");
 
