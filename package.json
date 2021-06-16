@@ -67,7 +67,7 @@
     "commands": "./dist/commands",
     "topics": {
       "funcs": {
-        "description": "manage cloud functions(experimental)"
+        "description": "manage cloud functions (experimental)"
       }
     },
     "bin": "oclif-example",
