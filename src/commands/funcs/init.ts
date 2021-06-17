@@ -18,11 +18,11 @@
  */
 import "../../config";
 import {Command} from "@oclif/command";
-import {join, basename} from "path";
+import path from "path";
 import {tree} from "../../utils/tree";
 const fullname = require("fullname");
 const nodePlop = require("node-plop");
-const plop = nodePlop(join(__dirname, "..", "..", "..", "dist", "plopfile.js"));
+const plop = nodePlop(path.resolve(__dirname, "../../plopfile.js"));
 const init = plop.getGenerator("init");
 const inquirer = require("inquirer");
 
@@ -35,7 +35,7 @@ export default class InitCommand extends Command {
   public async run() {
     console.log("This utility will help you create a basic function");
 
-    const dirname: string = basename(process.cwd());
+    const dirname: string = path.basename(process.cwd());
     const questions = await inquirer.prompt([
       {
         name: "ext",
@@ -67,7 +67,12 @@ export default class InitCommand extends Command {
         default: "1.0.0"
       },
       {name: "pckgDesc", message: "description", type: "input"},
-      {name: "author", message: "author", type: "input", default: await fullname()},
+      {
+        name: "author",
+        message: "author",
+        type: "input",
+        default: await fullname()
+      },
       {name: "license", message: "license", type: "input", default: "ISC"},
       {
         name: "confirm",

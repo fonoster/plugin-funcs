@@ -42,11 +42,6 @@ function default_1(plop) {
                     path: "{{cwd}}/function/.eslintrc.js",
                     templateFile: "templates/lint/eslint{{ext}}.hbs",
                     abortOnFail: true
-                }, {
-                    type: "add",
-                    path: "{{cwd}}/function/tsconfig.dev.json",
-                    templateFile: "templates/tsconfig/tsconfig.dev.hbs",
-                    abortOnFail: true
                 });
             }
             if (data.ext == "ts") {
@@ -54,6 +49,11 @@ function default_1(plop) {
                     type: "add",
                     path: "{{cwd}}/function/tsconfig.json",
                     templateFile: "templates/tsconfig/tsconfig.hbs",
+                    abortOnFail: true
+                }, {
+                    type: "add",
+                    path: "{{cwd}}/function/tsconfig.dev.json",
+                    templateFile: "templates/tsconfig/tsconfig.dev.hbs",
                     abortOnFail: true
                 });
             }

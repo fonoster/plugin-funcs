@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+const tslib_1 = require("tslib");
 /*
  * Copyright (C) 2021 by Fonoster Inc (https://fonoster.com)
  * http://github.com/fonoster/fonos-plugin-funcs
@@ -20,17 +21,17 @@ Object.defineProperty(exports, "__esModule", { value: true });
  */
 require("../../config");
 const command_1 = require("@oclif/command");
-const path_1 = require("path");
+const path_1 = tslib_1.__importDefault(require("path"));
 const tree_1 = require("../../utils/tree");
 const fullname = require("fullname");
 const nodePlop = require("node-plop");
-const plop = nodePlop(path_1.join(__dirname, "..", "..", "..", "dist", "plopfile.js"));
+const plop = nodePlop(path_1.default.resolve(__dirname, "../../plopfile.js"));
 const init = plop.getGenerator("init");
 const inquirer = require("inquirer");
 class InitCommand extends command_1.Command {
     async run() {
         console.log("This utility will help you create a basic function");
-        const dirname = path_1.basename(process.cwd());
+        const dirname = path_1.default.basename(process.cwd());
         const questions = await inquirer.prompt([
             {
                 name: "ext",
@@ -60,7 +61,12 @@ class InitCommand extends command_1.Command {
                 default: "1.0.0"
             },
             { name: "pckgDesc", message: "description", type: "input" },
-            { name: "author", message: "author", type: "input", default: await fullname() },
+            {
+                name: "author",
+                message: "author",
+                type: "input",
+                default: await fullname()
+            },
             { name: "license", message: "license", type: "input", default: "ISC" },
             {
                 name: "confirm",

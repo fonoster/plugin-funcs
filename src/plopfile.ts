@@ -42,11 +42,19 @@ export default function (plop: any) {
         }
       );
       if (data.eslint) {
+        actions.push({
+          type: "add",
+          path: "{{cwd}}/function/.eslintrc.js",
+          templateFile: "templates/lint/eslint{{ext}}.hbs",
+          abortOnFail: true
+        });
+      }
+      if (data.ext == "ts") {
         actions.push(
           {
             type: "add",
-            path: "{{cwd}}/function/.eslintrc.js",
-            templateFile: "templates/lint/eslint{{ext}}.hbs",
+            path: "{{cwd}}/function/tsconfig.json",
+            templateFile: "templates/tsconfig/tsconfig.hbs",
             abortOnFail: true
           },
           {
@@ -56,14 +64,6 @@ export default function (plop: any) {
             abortOnFail: true
           }
         );
-      }
-      if (data.ext == "ts") {
-        actions.push({
-          type: "add",
-          path: "{{cwd}}/function/tsconfig.json",
-          templateFile: "templates/tsconfig/tsconfig.hbs",
-          abortOnFail: true
-        });
       }
       return actions;
     }
