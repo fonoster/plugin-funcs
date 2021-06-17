@@ -24,7 +24,7 @@ const path_1 = require("path");
 const tree_1 = require("../../utils/tree");
 const fullname = require("fullname");
 const nodePlop = require("node-plop");
-const plop = nodePlop(path_1.join(__dirname, "..", "..", "..", "src", "plopfile.ts"));
+const plop = nodePlop(path_1.join(__dirname, "..", "..", "..", "dist", "plopfile.js"));
 const init = plop.getGenerator("init");
 const inquirer = require("inquirer");
 class InitCommand extends command_1.Command {
