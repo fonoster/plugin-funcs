@@ -57,10 +57,7 @@ export default class DeployCommand extends Command {
         request.schedule = flags.schedule;
       }
 
-      await _faasdManager.deployFunction({
-        name: name,
-        baseDir: process.cwd()
-      });
+      await _faasdManager.deployFunction(request);
     } catch (e) {
       throw new CLIError(e);
     }

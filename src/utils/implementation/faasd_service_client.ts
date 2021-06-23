@@ -37,7 +37,8 @@ export default class FaasdService implements IFaasdService {
   async deploy(request: DeployFunction) {
     const requestDeploy: DeployFuncRequest = {
       name: request.name,
-      path: request.baseDir
+      path: request.baseDir,
+      schedule: request.schedule
     };
 
     const funcs = new Funcs();

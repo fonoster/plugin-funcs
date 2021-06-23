@@ -11,7 +11,8 @@ class FaasdService {
     async deploy(request) {
         const requestDeploy = {
             name: request.name,
-            path: request.baseDir
+            path: request.baseDir,
+            schedule: request.schedule
         };
         const funcs = new funcs_2.default();
         const stream = await funcs.deployFunc(requestDeploy);

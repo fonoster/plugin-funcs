@@ -43,10 +43,7 @@ class DeployCommand extends command_1.Command {
             if (flags.schedule) {
                 request.schedule = flags.schedule;
             }
-            await _faasdManager.deployFunction({
-                name: name,
-                baseDir: process.cwd()
-            });
+            await _faasdManager.deployFunction(request);
         }
         catch (e) {
             throw new errors_1.CLIError(e);
