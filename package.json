@@ -1,7 +1,7 @@
 {
   "name": "@fonos/plugin-funcs",
   "description": "Managament for Fonos Functions",
-  "version": "0.6.10",
+  "version": "0.6.11",
   "author": "Wardner Lara @wardner, Raul Sanchez @speedymonster",
   "scripts": {
     "prepack": "rimraf lib && tsc -b && oclif-dev manifest && oclif-dev readme",
@@ -15,7 +15,7 @@
   },
   "bugs": "https://github.com/fonoster/fonos-plugin-funcs/issues",
   "dependencies": {
-    "@fonos/funcs": "^0.1.7-alpha.0",
+    "@fonos/funcs": "^0.1.8-alpha.0",
     "@fonos/logger": "^0.0.117",
     "@oclif/command": "^1.8.0",
     "@oclif/config": "^1.17.0",
