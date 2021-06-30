@@ -36,7 +36,8 @@ class GetCommand extends command_1.Command {
                 image: result.image,
                 replicas: result.replicas,
                 availableReplicas: result.availableReplicas,
-                invocationCount: result.invocationCount
+                invocationCount: result.invocationCount,
+                schedule: result.schedule
             };
             console.log(prettyjson_1.render(objectReturn, { noColor: true }));
         }

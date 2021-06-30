@@ -34,6 +34,7 @@ export interface GetFunctionResponse {
   invocationCount: number;
   replicas: number;
   availableReplicas: number;
+  schedule?: string;
 }
 export interface Resource {
   memory: string;
@@ -46,6 +47,7 @@ export interface Function {
   invocationCount: number;
   replicas: number;
   availableReplicas: number;
+  schedule?: string;
 }
 
 export interface ListFunctionResponse {

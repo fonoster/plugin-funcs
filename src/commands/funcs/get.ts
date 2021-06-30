@@ -45,7 +45,8 @@ export default class GetCommand extends Command {
         image: result.image,
         replicas: result.replicas,
         availableReplicas: result.availableReplicas,
-        invocationCount: result.invocationCount
+        invocationCount: result.invocationCount,
+        schedule: result.schedule
       };
       console.log(render(objectReturn, {noColor: true}));
     } catch (e) {

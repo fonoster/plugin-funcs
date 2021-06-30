@@ -68,6 +68,7 @@ export default class ListCommand extends Command {
           t.cell("Name", func.name);
           t.cell("Invocation Count", func.invocationCount);
           t.cell("Replicas", func.replicas);
+          t.cell("Schedule", func.schedule)
           t.newRow();
         });
 

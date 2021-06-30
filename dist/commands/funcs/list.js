@@ -56,6 +56,7 @@ class ListCommand extends command_1.Command {
                     t.cell("Name", func.name);
                     t.cell("Invocation Count", func.invocationCount);
                     t.cell("Replicas", func.replicas);
+                    t.cell("Schedule", func.schedule);
                     t.newRow();
                 });
                 if (list.length > 0)
