@@ -16,7 +16,6 @@
   "bugs": "https://github.com/fonoster/fonos-plugin-funcs/issues",
   "dependencies": {
     "@fonos/funcs": "^0.1.8-alpha.0",
-    "@fonos/logger": "^0.0.117",
     "@oclif/command": "^1.8.0",
     "@oclif/config": "^1.17.0",
     "cli-ux": "^5.5.1",
