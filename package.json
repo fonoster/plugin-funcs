@@ -1,7 +1,7 @@
 {
   "name": "@fonos/plugin-funcs",
   "description": "Managament for Fonos Functions",
-  "version": "0.6.12",
+  "version": "0.6.13",
   "author": "Wardner Lara @wardner, Raul Sanchez @speedymonster",
   "scripts": {
     "prepack": "rimraf lib && tsc -b && oclif-dev manifest && oclif-dev readme",
