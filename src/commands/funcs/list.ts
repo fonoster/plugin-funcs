@@ -22,8 +22,7 @@ import {Command, flags as oclifFlags} from "@oclif/command";
 const inquirer = require("inquirer");
 import FaasdManager from "../../utils/faasd_manager";
 import FaasdService from "../../utils/implementation/faasd_service_client";
-import {Function} from "../../utils/types";
-const Table = require("easy-table");
+import {cli} from "cli-ux";
 
 export default class ListCommand extends Command {
   static description = "get a list of fonos functions";
@@ -62,17 +61,14 @@ export default class ListCommand extends Command {
           if (!answer.q) break;
         }
 
-        const t = new Table();
+        if (list.length < 1) break;
 
-        list.forEach((func: Function) => {
-          t.cell("Name", func.name);
-          t.cell("Invocation Count", func.invocationCount);
-          t.cell("Replicas", func.replicas);
-          t.cell("Schedule", func.schedule)
-          t.newRow();
+        cli.table(list, {
+          name: {header: "Name", minWidth: 15},
+          invocationCount: {header: "Invocation Count", minWidth: 15},
+          replicas: {header: "Replicas", minWidth: 15},
+          schedule: {header: "Schedule", minWidth: 15}
         });
-
-        if (list.length > 0) console.log(t.toString());
 
         firstBatch = false;
         if (!pageToken) break;

@@ -25,7 +25,7 @@ const command_1 = require("@oclif/command");
 const inquirer = require("inquirer");
 const faasd_manager_1 = tslib_1.__importDefault(require("../../utils/faasd_manager"));
 const faasd_service_client_1 = tslib_1.__importDefault(require("../../utils/implementation/faasd_service_client"));
-const Table = require("easy-table");
+const cli_ux_1 = require("cli-ux");
 class ListCommand extends command_1.Command {
     async run() {
         const { flags } = this.parse(ListCommand);
@@ -51,16 +51,14 @@ class ListCommand extends command_1.Command {
                     if (!answer.q)
                         break;
                 }
-                const t = new Table();
-                list.forEach((func) => {
-                    t.cell("Name", func.name);
-                    t.cell("Invocation Count", func.invocationCount);
-                    t.cell("Replicas", func.replicas);
-                    t.cell("Schedule", func.schedule);
-                    t.newRow();
+                if (list.length < 1)
+                    break;
+                cli_ux_1.cli.table(list, {
+                    name: { header: "Name", minWidth: 15 },
+                    invocationCount: { header: "Invocation Count", minWidth: 15 },
+                    replicas: { header: "Replicas", minWidth: 15 },
+                    schedule: { header: "Schedule", minWidth: 15 }
                 });
-                if (list.length > 0)
-                    console.log(t.toString());
                 firstBatch = false;
                 if (!pageToken)
                     break;
