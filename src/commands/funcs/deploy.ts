@@ -1,8 +1,8 @@
 /*
  * Copyright (C) 2021 by Fonoster Inc (https://fonoster.com)
- * http://github.com/fonoster/fonos-plugin-funcs
+ * http://github.com/fonoster/plugin-funcs
  *
- * This file is part of Project Fonos
+ * This file is part of Fonoster
  *
  * Licensed under the MIT License (the "License");
  * you may not use this file except in compliance with
@@ -24,7 +24,7 @@ import FaasdService from "../../utils/implementation/faasd_service_client";
 import {DeployFunction} from "../../utils/types";
 import * as fs from "fs";
 export default class DeployCommand extends Command {
-  static description = "deploy a fonos function";
+  static description = "deploy Fonoster Function";
 
   static flags = {
     schedule: oclifFlags.string({
@@ -37,7 +37,7 @@ export default class DeployCommand extends Command {
   async run() {
     const {flags} = this.parse(DeployCommand);
 
-    console.log("Deploying function to cloud backend");
+    console.log("Deploying Function to cloud backend");
     const _faasdManager = new FaasdManager(new FaasdService());
     const pathPackageFunction = `${process.cwd()}/function/package.json`;
     try {

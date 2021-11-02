@@ -10,11 +10,11 @@
   {{/if}}
   "scripts": {
     "build": "tsc",
-    "deploy": "fonos funcs:deploy",
+    "deploy": "fonosterfuncs:deploy",
     {{#if eslint}}
     "lint": "eslint --ext .js,.ts .",
     {{/if}}
-    "logs": "fonos funcs:logs --follow"
+    "logs": "fonosterfuncs:logs --follow"
   },
   "devDependencies": {
     "@types/node": "^15.12.2",

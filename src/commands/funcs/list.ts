@@ -1,8 +1,8 @@
 /*
  * Copyright (C) 2021 by Fonoster Inc (https://fonoster.com)
- * http://github.com/fonoster/fonos-plugin-funcs
+ * http://github.com/fonoster/plugin-funcs
  *
- * This file is part of Project Fonos
+ * This file is part of Fonoster
  *
  * Licensed under the MIT License (the "License");
  * you may not use this file except in compliance with
@@ -17,7 +17,7 @@
  * limitations under the License.
  */
 import "../../config";
-import {CommonPB} from "@fonos/funcs";
+import {CommonPB} from "@fonoster/funcs";
 import {Command, flags as oclifFlags} from "@oclif/command";
 const inquirer = require("inquirer");
 import FaasdManager from "../../utils/faasd_manager";
@@ -25,7 +25,7 @@ import FaasdService from "../../utils/implementation/faasd_service_client";
 import {cli} from "cli-ux";
 
 export default class ListCommand extends Command {
-  static description = "get a list of fonos functions";
+  static description = "list all the Functions you have access to";
   static flags = {
     size: oclifFlags.integer({
       char: "s",

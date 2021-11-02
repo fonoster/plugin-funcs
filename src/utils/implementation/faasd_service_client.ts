@@ -1,8 +1,8 @@
 /*
  * Copyright (C) 2021 by Fonoster Inc (https://fonoster.com)
- * http://github.com/fonoster/fonos-plugin-funcs
+ * http://github.com/fonoster/plugin-funcs
  *
- * This file is part of Project Fonos
+ * This file is part of Fonoster
  *
  * Licensed under the MIT License (the "License");
  * you may not use this file except in compliance with
@@ -24,9 +24,9 @@ import {
   ListFunctionResponse,
   LogFunctionRequest
 } from "../types";
-import FuncService from "@fonos/funcs";
-import Funcs from "@fonos/funcs";
-import {DeployFuncRequest} from "@fonos/funcs/dist/client/types";
+import FuncService from "@fonoster/funcs";
+import Funcs from "@fonoster/funcs";
+import {DeployFuncRequest} from "@fonoster/funcs/dist/client/types";
 const consola = require("consola");
 
 export default class FaasdService implements IFaasdService {

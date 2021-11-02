@@ -1,8 +1,8 @@
 /*
  * Copyright (C) 2021 by Fonoster Inc (https://fonoster.com)
- * http://github.com/fonoster/fonos-plugin-funcs
+ * http://github.com/fonoster/plugin-funcs
  *
- * This file is part of Project Fonos
+ * This file is part of Fonoster
  *
  * Licensed under the MIT License (the "License");
  * you may not use this file except in compliance with
@@ -31,7 +31,7 @@ export default class DeleteCommand extends Command {
     const {args} = this.parse(DeleteCommand);
     const _faasdManager = new FaasdManager(new FaasdService());
     try {
-      cli.action.start("removing a fonos function");
+      cli.action.start("remove Fonoster Function");
       await _faasdManager.deleteFunction(args.ref);
       await cli.wait(1000);
       cli.action.stop("Done");
